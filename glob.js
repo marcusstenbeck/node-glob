@@ -366,8 +366,8 @@ Glob.prototype._process = function (pattern, depth, index, cb_) {
     }
     read = prefix = path.resolve(prefix)
 
-    // if (process.platform === "win32")
-    //   read = prefix = prefix.replace(/^[a-zA-Z]:|\\/g, "/")
+    if (process.platform === "win32")
+      read = prefix = prefix.replace(/^[a-zA-Z]:|\\/g, "/")
 
     this.log('absolute: ', prefix, this.root, pattern, read)
   } else {
